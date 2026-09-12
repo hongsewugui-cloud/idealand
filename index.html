@@ -297,6 +297,64 @@ body.at-home .hud-top:hover{opacity:1}
 .ex-quote,.ex-why p,.ex-top,.ex-meta,.chip,.view-toggle,.tool-btn,.hall-rail-head,
 .field label,.field textarea,.radio-row button,.cat-pick button,.privacy{transform:translateZ(0)}
 
+/* ═══════════ ROOM / LAB / ABOUT ═══════════ */
+#view-room,#view-lab,#view-about{background:var(--canvas);overflow-y:auto}
+.page{position:relative;z-index:2;min-height:100%;max-width:1000px;margin:0 auto;padding:calc(var(--hud-h) + 6vh) var(--gut) 96px}
+.page-narrow{max-width:700px}
+.page-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.26em;color:var(--muted);text-transform:uppercase}
+.page-title{font-size:clamp(30px,4.4vw,52px);font-weight:500;letter-spacing:.01em;margin:14px 0 10px}
+.page-lead{font-size:17px;font-weight:300;color:var(--muted);max-width:660px;line-height:1.85}
+.sec-h{display:flex;align-items:baseline;gap:16px;margin:46px 0 20px}
+.sec-h h3{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--ink)}
+.sec-h .rule{flex:1;height:1px;background:var(--line-soft)}
+.sec-h .cnt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--faint);text-transform:uppercase}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--panel);padding:22px 24px}
+.stat b{display:block;font-size:clamp(28px,3vw,40px);font-weight:500;line-height:1}
+.stat span{display:block;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+.mine-row{display:grid;grid-template-columns:96px 1fr 24px;gap:18px;align-items:baseline;padding:18px 4px;border-bottom:1px solid var(--line-soft)}
+.mine-row .m-id{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.12em}
+.mine-row .m-body{min-width:0}
+.mine-row .m-tx{font-size:18px;font-weight:300;line-height:1.6}
+.mine-row .m-meta{margin-top:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint);text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.mine-row .m-meta i{width:6px;height:6px;border-radius:99px;background:var(--cat);display:inline-block}
+.mine-row .m-why{margin-top:8px;font-family:var(--serif);font-size:15px;color:#CFCBBF;line-height:1.8}
+.mine-row button.x{color:var(--faint);font-family:var(--mono);font-size:14px;justify-self:end;transition:color .2s}
+.mine-row button.x:hover{color:var(--accent)}
+.room-empty{border:1px solid var(--line);padding:44px;text-align:center;color:var(--muted)}
+.room-empty p{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:2.2}
+.note-save{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.12em}
+.btn-ghost{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-soft);padding:9px 14px}
+.btn-ghost:hover{color:var(--accent);border-color:rgba(226,80,43,.5)}
+.danger-zone{margin-top:40px;display:flex;justify-content:flex-end}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tool{border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;gap:14px;background:linear-gradient(180deg,var(--panel-2),var(--panel))}
+.tool h4{font-size:15px;font-weight:500;letter-spacing:.04em}
+.tool p{font-size:13.5px;font-weight:300;color:var(--muted);line-height:1.8}
+.tool .tool-foot{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+select.dark{background:var(--canvas);color:var(--ink);border:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:9px 12px;max-width:100%}
+select.dark option{background:#131315}
+.lab-stage{margin-top:18px;border:1px solid var(--line);padding:18px;background:rgba(19,19,21,.5)}
+.lab-stage canvas{width:100%;display:block;background:#0B0B0C;border:1px solid var(--line-soft)}
+.lab-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.manifesto{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);line-height:2.1;color:#D8D4CA;max-width:640px}
+.manifesto p{margin:0 0 14px}
+.three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.three-cell{background:var(--panel);padding:24px}
+.three-cell .n{font-family:var(--mono);font-size:10px;color:var(--faint);letter-spacing:.2em}
+.three-cell h5{font-size:15px;font-weight:500;margin:12px 0 8px;letter-spacing:.04em}
+.three-cell p{font-size:13px;font-weight:300;color:var(--muted);line-height:1.8}
+.loop-list{display:flex;flex-direction:column}
+.loop-item{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line-soft);align-items:baseline}
+.loop-item::before{content:"0" counter(step);counter-increment:step;font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.1em}
+.loop-list{counter-reset:step}
+.loop-item b{font-weight:500;font-size:16px}
+.principle{border:1px solid var(--line);padding:24px 26px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;line-height:2.1;color:var(--muted);text-transform:uppercase}
+@media(max-width:860px){
+  .stat-grid,.three-grid,.tool-grid{grid-template-columns:1fr}
+  .mine-row{grid-template-columns:64px 1fr 20px;gap:10px}
+  .page{padding-top:92px}
+}
 /* ═══════════ RESPONSIVE ═══════════ */
 @media(max-width:860px){
   :root{--gut:20px}
@@ -355,9 +413,9 @@ body.at-home .hud-top:hover{opacity:1}
   </div>
   <nav class="hud-nav">
     <button data-route="#/museum" data-i18n="nav_museum">Museum</button>
-    <button class="soon" data-i18n="nav_room">My Room</button>
-    <button class="soon" data-i18n="nav_lab">Lab</button>
-    <button class="soon" data-i18n="nav_about">About</button>
+    <button data-route="#/room" data-i18n="nav_room">My Room</button>
+    <button data-route="#/lab" data-i18n="nav_lab">Lab</button>
+    <button data-route="#/about" data-i18n="nav_about">About</button>
   </nav>
   <div class="hud-right">
     <span class="on-display"><b>2,317</b> <span data-i18n="on_display">on display</span></span>
@@ -522,6 +580,73 @@ body.at-home .hud-top:hover{opacity:1}
   </div>
 </main>
 
+<!-- ══════ ROOM ══════ -->
+<main class="view" id="view-room">
+  <div class="page">
+    <div class="page-kicker" data-i18n="room_kicker">Your Private Room</div>
+    <h2 class="page-title" data-i18n="room_title">YOUR ROOM</h2>
+    <p class="page-lead" data-i18n="room_lead"></p>
+    <div class="stat-grid">
+      <div class="stat"><b id="roomMineCount">0</b><span data-i18n="room_stat_mine">exhibits left</span></div>
+      <div class="stat"><b id="roomCatCount">0</b><span data-i18n="room_stat_cats">halls touched</span></div>
+      <div class="stat"><b id="roomLatest">—</b><span data-i18n="room_stat_latest">latest</span></div>
+    </div>
+    <div class="sec-h"><h3 data-i18n="room_myworks">My Exhibits</h3><span class="rule"></span><span class="cnt" id="roomListCnt"></span></div>
+    <div id="roomList"></div>
+    <div class="room-empty" id="roomEmpty"><p data-i18n="room_empty">You have not left anything yet.</p>
+      <button class="btn-outline" style="margin-top:16px" data-route="#/submit"><span data-i18n="room_go_submit">Leave your first</span><span class="arr">→</span></button></div>
+    <div class="sec-h"><h3 data-i18n="room_note">Note to Self</h3><span class="rule"></span></div>
+    <div class="field"><textarea id="roomNote" rows="4" maxlength="2000"></textarea>
+      <div class="note-save" id="roomNoteState" style="text-align:right;margin-top:8px"></div></div>
+    <div class="danger-zone"><button class="btn-ghost" id="roomClear" data-i18n="room_clear">Clear my room</button></div>
+  </div>
+</main>
+
+<!-- ══════ LAB ══════ -->
+<main class="view" id="view-lab">
+  <div class="page">
+    <div class="page-kicker" data-i18n="lab_kicker">Visual Lab</div>
+    <h2 class="page-title" data-i18n="lab_title">LAB</h2>
+    <p class="page-lead" data-i18n="lab_lead"></p>
+    <div class="tool-grid">
+      <div class="tool">
+        <h4 data-i18n="lab_study">Desire → Visual Study</h4>
+        <p data-i18n="lab_study_desc"></p>
+        <div class="tool-foot">
+          <select class="dark" id="studyPick"></select>
+          <button class="btn-outline" id="studyGen"><span data-i18n="lab_generate">Generate</span><span class="arr">→</span></button>
+        </div>
+      </div>
+      <div class="tool">
+        <h4 data-i18n="lab_const">Desire Constellation</h4>
+        <p data-i18n="lab_const_desc"></p>
+        <div class="tool-foot">
+          <button class="btn-outline" id="constDraw"><span data-i18n="lab_const_draw">Redraw</span><span class="arr">→</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="lab-stage"><canvas id="studyCanvas" width="1200" height="1500"></canvas>
+      <div class="lab-actions"><button class="btn-ghost" id="studyDl" data-i18n="lab_download">Download PNG</button><span class="note-save" id="studyHint"></span></div></div>
+    <div class="lab-stage"><canvas id="constCanvas" width="1200" height="720"></canvas>
+      <div class="lab-actions"><button class="btn-ghost" id="constDl" data-i18n="lab_download">Download PNG</span></button></div></div>
+  </div>
+</main>
+
+<!-- ══════ ABOUT ══════ -->
+<main class="view" id="view-about">
+  <div class="page page-narrow">
+    <div class="page-kicker">ABOUT</div>
+    <h2 class="page-title">IDEALAND</h2>
+    <div class="manifesto" id="aboutManifesto" style="margin-top:26px"></div>
+    <div class="sec-h"><h3 data-i18n="about_spaces_h">Three Spaces</h3><span class="rule"></span></div>
+    <div class="three-grid" id="aboutThree"></div>
+    <div class="sec-h"><h3 data-i18n="about_loop_h">The Loop</h3><span class="rule"></span></div>
+    <div class="loop-list" id="aboutLoop"></div>
+    <div class="sec-h"><h3 data-i18n="about_principle_h">Principle</h3><span class="rule"></span></div>
+    <div class="principle" id="aboutPrinciple"></div>
+  </div>
+</main>
+
 <!-- ══════ HUD BOTTOM ══════ -->
 <footer class="hud-bottom">
   <div class="keys"><span id="keysLeft"><b>← →</b> WANDER · <b>SPACE</b> NEXT · <b>ESC</b> EFFECTS <span id="fxState">ON</span></span></div>
@@ -593,7 +718,18 @@ const I18N={
   label_why:"Why?",optional:"（optional）",label_sig:"Signature",sig_anon:"Anonymous",sig_alias:"Alias",
   label_cat:"Help it find its hall",privacy:"Anonymous by design — no identity data is collected. Your submission is kept permanently in this browser only (localStorage), never uploaded.",
   leave_it:"Leave it",entered_archive:"Entered the Desire Archive",success_line:"Your exhibit is now on display — and kept permanently in this browser.",
-  back_hall:"Back to the hall",bottom_right:"ANONYMOUS BY DESIGN · ABOUT",all:"All",fx:"EFFECTS"},
+  back_hall:"Back to the hall",bottom_right:"ANONYMOUS BY DESIGN · ABOUT",all:"All",fx:"EFFECTS",
+  room_kicker:"Your Private Room · Stored On This Device",room_title:"YOUR ROOM",
+  room_lead:"This is your own space. Everything here is saved only in this browser: your exhibits, your note, your creations.",
+  room_stat_mine:"exhibits left",room_stat_cats:"halls touched",room_stat_latest:"latest",
+  room_myworks:"My Exhibits",room_empty:"You have not left anything yet.",room_go_submit:"Leave your first",
+  room_note:"Note to Self",room_clear:"Clear my room",
+  lab_kicker:"Make Something From A Desire",lab_title:"LAB",
+  lab_lead:"Tools open to every visitor: turn any desire into a visual study, or draw a private map of your own. Everything renders in your browser and can be downloaded.",
+  lab_study:"Desire to Visual Study",lab_study_desc:"Pick an exhibit and generate a deterministic poster from its words and its hall color. No server — fully yours.",
+  lab_generate:"Generate",lab_download:"Download PNG",
+  lab_const:"Desire Constellation",lab_const_desc:"Your own exhibits placed by the hall they belong to: a private star map of what you want.",lab_const_draw:"Redraw",
+  about_spaces_h:"Three Spaces",about_loop_h:"The Loop",about_principle_h:"Principle"},
  zh:{submark:"人类欲望博物馆",nav_museum:"博物馆",nav_room:"我的房间",nav_lab:"实验室",nav_about:"关于",
   on_display:"件在展",submit_cta:"＋ 留下一件展品",home_kicker:"一座数字博物馆",home_sub:"收藏人类的欲望",
   enter:"进入",museum_cn:"Desire Archive",random:"随机一件",hall_hint:"← → / 拖拽 / 滚轮 逛馆",
@@ -603,7 +739,18 @@ const I18N={
   label_why:"为什么？",optional:"（可跳过）",label_sig:"署名方式",sig_anon:"完全匿名",sig_alias:"自定代号",
   label_cat:"帮它找到所属展厅",privacy:"匿名原则：本站不收集任何身份信息。你的提交仅永久保存在本机浏览器（localStorage），不会上传。",
   leave_it:"留下它",entered_archive:"已进入欲望档案馆",success_line:"你的展品已进入展厅，并永久保存在本机浏览器。",
-  back_hall:"回到展厅",bottom_right:"匿名原则 · 关于",all:"全部",fx:"特效"}
+  back_hall:"回到展厅",bottom_right:"匿名原则 · 关于",all:"全部",fx:"特效",
+  room_kicker:"你的私人房间 · 仅保存在本机",room_title:"你的房间",
+  room_lead:"这是属于你的空间：你留下的展品、便签与创作，都只保存在这个浏览器里。",
+  room_stat_mine:"留下的展品",room_stat_cats:"触及展厅",room_stat_latest:"最新一件",
+  room_myworks:"我的展品",room_empty:"你还没有留下任何展品。",room_go_submit:"留下第一件",
+  room_note:"给自己的便签",room_clear:"清空我的房间",
+  lab_kicker:"把欲望做成作品",lab_title:"实验室",
+  lab_lead:"向每位访客开放的创作工具：把任意一件欲望生成视觉海报，或画出只属于你的欲望星图。全部在你的浏览器里完成，可下载保存。",
+  lab_study:"欲望 → 视觉研究",lab_study_desc:"选一件展品，依据它的文字与所属展厅的颜色，生成一张确定性海报。不经过服务器，完全属于你。",
+  lab_generate:"生成",lab_download:"下载 PNG",
+  lab_const:"欲望星图",lab_const_desc:"把你的展品按所属展厅排布，形成一张只属于你的欲望星图。",lab_const_draw:"重新绘制",
+  about_spaces_h:"三个空间",about_loop_h:"闭环",about_principle_h:"原则"}
 };
 let lang=localStorage.getItem("idealand-lang")||"en";
 function t(k){return (I18N[lang]&&I18N[lang][k])||I18N.en[k]||k}
@@ -615,11 +762,12 @@ function applyI18n(){
     else el.textContent=t(k);
   });
   document.getElementById("langSwitch").innerHTML=lang==="en"?"<b>EN</b>｜中":"EN｜<b>中</b>";
-  buildChips();renderMuseum();if(currentExhibit)showExhibit(currentExhibit.id);rotateQuestion();
+  buildChips();renderMuseum();if(currentExhibit)showExhibit(currentExhibit.id);rotateQuestion();renderRoom();renderLab();renderAbout();
 }
 
 /* ═══════════ ROUTER ═══════════ */
-const views={ "#/":"view-home","#/museum":"view-museum","#/exhibit":"view-exhibit","#/submit":"view-submit"};
+const views={ "#/":"view-home","#/museum":"view-museum","#/exhibit":"view-exhibit","#/submit":"view-submit",
+  "#/room":"view-room","#/lab":"view-lab","#/about":"view-about"};
 let currentExhibit=null;
 function route(){
   const hash=location.hash||"#/";
@@ -628,9 +776,12 @@ function route(){
   document.getElementById(views[key]).classList.add("active");
   document.body.classList.toggle("at-home",key==="#/");
   document.querySelectorAll(".hud-nav button[data-route]").forEach(b=>
-    b.classList.toggle("active",b.getAttribute("data-route")==="#/museum"&&key==="#/museum"));
+    b.classList.toggle("active",b.getAttribute("data-route")===key));
   if(key==="#/exhibit"){const id=(hash.split("/")[2]||EXHIBITS[0].id);showExhibit(id,true);}
   if(key==="#/museum"){setTimeout(centerFirst,120)}
+  if(key==="#/room")renderRoom();
+  if(key==="#/lab")renderLab();
+  if(key==="#/about")renderAbout();
 }
 addEventListener("hashchange",route);
 document.querySelectorAll("[data-route]").forEach(el=>el.addEventListener("click",()=>{location.hash=el.getAttribute("data-route")}));
@@ -765,8 +916,8 @@ function rotateQuestion(){document.getElementById("submitQuestion").textContent=
     const nextNum=String(Math.max(...EXHIBITS.map(e=>+e.id))+1).padStart(4,"0");
     const alias=document.getElementById("aliasInput").value.trim();
     EXHIBITS.unshift({id:nextNum,text:ta.value.trim(),why:document.getElementById("whyInput").value.trim()||null,
-      sig:{name:sigMode==="alias"&&alias?alias:"Anonymous",age:null,year:"2026"},cat:pickedCat,q:qIndex,mine:true});
-    _saveMine();
+      sig:{name:sigMode==="alias"&&alias?alias:"Anonymous",age:null,year:"2026"},cat:pickedCat,q:qIndex,ts:Date.now(),mine:true});
+    _saveMine();renderRoom();renderLab();
     document.getElementById("newId").textContent="EXHIBIT #"+nextNum;
     document.getElementById("submitForm").style.display="none";
     document.getElementById("submitSuccess").classList.add("on");buildChips()
@@ -819,11 +970,129 @@ window.__UI_CAPTURE__={states:[
  {id:"exhibit-why",label:"EXHIBIT 带WHY",go:async()=>{location.hash="#/exhibit/0237";await sleep(700)}},
  {id:"exhibit-plain",label:"EXHIBIT 无WHY",go:async()=>{location.hash="#/exhibit/0230";await sleep(700)}},
  {id:"submit",label:"SUBMIT 提交",go:async()=>{document.getElementById("submitForm").style.display="";
-   document.getElementById("submitSuccess").classList.remove("on");location.hash="#/submit";await sleep(500)}}
+   document.getElementById("submitSuccess").classList.remove("on");location.hash="#/submit";await sleep(500)}},
+ {id:"room",label:"ROOM 我的房间",go:async()=>{location.hash="#/room";await sleep(500)}},
+ {id:"lab",label:"LAB 实验室",go:async()=>{location.hash="#/lab";await sleep(600)}},
+ {id:"about",label:"ABOUT 关于",go:async()=>{location.hash="#/about";await sleep(500)}},
 ],reset:async()=>{mode="hall";lang="en";syncModes();applyI18n();renderMuseum();location.hash="#/";await sleep(400)}};
 
+/* ═══════════ ROOM (each visitor's own space) ═══════════ */
+const NOTE_KEY="idealand-note-v1";
+function mineList(){return EXHIBITS.filter(e=>e.mine)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function noteSaveState(){const el=document.getElementById("roomNoteState");if(el)el.textContent=lang==="zh"?"已自动保存在本机":"Saved on this device"}
+function renderRoom(){
+  const box=document.getElementById("roomList");if(!box)return;
+  const mine=mineList();
+  document.getElementById("roomMineCount").textContent=String(mine.length);
+  document.getElementById("roomCatCount").textContent=String(new Set(mine.map(e=>e.cat)).size);
+  document.getElementById("roomLatest").textContent=mine.length?"#"+mine[0].id:"—";
+  document.getElementById("roomListCnt").textContent=String(mine.length).padStart(2,"0");
+  document.getElementById("roomEmpty").style.display=mine.length?"none":"block";
+  box.innerHTML=mine.map(e=>`<div class="mine-row" style="--cat:${CATS[e.cat].c}">
+    <span class="m-id">#${e.id}</span>
+    <div class="m-body"><div class="m-tx">“${esc(e.text)}”</div>
+      ${e.why?`<div class="m-why">${esc(e.why)}</div>`:""}
+      <div class="m-meta"><i></i><span>${catLabel(e.cat)}</span><span>·</span><span>${e.sig.name||"Anonymous"}</span></div></div>
+    <button class="x" data-del="${e.id}">✕</button></div>`).join("");
+  box.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>removeMine(b.dataset.del));
+  const note=document.getElementById("roomNote");
+  if(note&&document.activeElement!==note)note.value=localStorage.getItem(NOTE_KEY)||"";
+  noteSaveState();
+}
+function removeMine(id){
+  const i=EXHIBITS.findIndex(e=>e.mine&&e.id===id);if(i<0)return;
+  EXHIBITS.splice(i,1);_saveMine();buildChips();renderMuseum();renderRoom();renderLab();
+}
+(function roomBindings(){
+  const note=document.getElementById("roomNote");
+  if(note)note.addEventListener("input",()=>{try{localStorage.setItem(NOTE_KEY,note.value)}catch(e){}noteSaveState()});
+  const clr=document.getElementById("roomClear");
+  if(clr)clr.onclick=()=>{
+    const ok=confirm(lang==="zh"?"清空你在本机留下的全部展品和便签？此操作不可撤销。":"Clear all exhibits and the note saved on this device? This cannot be undone.");
+    if(!ok)return;
+    EXHIBITS=EXHIBITS.filter(e=>!e.mine);_saveMine();
+    try{localStorage.removeItem(NOTE_KEY)}catch(e){}
+    buildChips();renderMuseum();renderRoom();renderLab();
+  };
+})();
+
+/* ═══════════ LAB (creation tools for every visitor) ═══════════ */
+const CAT_HEX={love:"#E5486B",recognition:"#E8B24D",money:"#86C95A",security:"#3FC094",freedom:"#46A6E8",belonging:"#6E83E8",escape:"#9B7DE8",creation:"#D46BE0"};
+function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function rng(seed){let a=seed;return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function fillStudySelect(){
+  const sel=document.getElementById("studyPick");if(!sel)return;const cur=sel.value;
+  const pool=mineList().length?mineList():EXHIBITS.slice(0,8);
+  sel.innerHTML=pool.map(e=>`<option value="${e.id}">#${e.id} “${esc(e.text.slice(0,26))}${e.text.length>26?"…":""}”</option>`).join("");
+  if(cur)sel.value=cur;
+}
+function wrapDraw(ctx,text,o,maxW,lh){ctx.textAlign="center";let yy=o.y;const cjk=/[一-鿿]/.test(text);
+  if(cjk){let line="";for(const ch of text){const t=line+ch;if(ctx.measureText(t).width>maxW&&line){ctx.fillText(line,o.x,yy);line=ch;yy+=lh}else line=t}if(line)ctx.fillText(line,o.x,yy);return yy}
+  const words=text.split(/\s+/);let line="";for(const w of words){const t=line?line+" "+w:w;if(ctx.measureText(t).width>maxW&&line){ctx.fillText(line,o.x,yy);line=w;yy+=lh}else line=t}if(line)ctx.fillText(line,o.x,yy);return yy}
+function drawStudy(){
+  const cv=document.getElementById("studyCanvas");if(!cv)return;const ctx=cv.getContext("2d"),W=cv.width,H=cv.height;
+  const id=document.getElementById("studyPick").value;const e=EXHIBITS.find(x=>x.id===id)||EXHIBITS[0];
+  const col=CAT_HEX[e.cat]||"#E2502B",r=rng(hashStr(e.id+e.text));
+  ctx.fillStyle="#0B0B0C";ctx.fillRect(0,0,W,H);
+  let g=ctx.createRadialGradient(W*.5,H*.34,40,W*.5,H*.34,W*.72);
+  g.addColorStop(0,col+"26");g.addColorStop(1,"#0B0B0C00");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle=col+"55";ctx.lineWidth=1;for(let i=0;i<5;i++){ctx.beginPath();ctx.arc(W/2,H*.36,120+i*72+r()*30,0,Math.PI*2);ctx.stroke()}
+  ctx.fillStyle=col;for(let i=0;i<130;i++){const a=r()*Math.PI*2,rr=60+r()*520;ctx.globalAlpha=.2+r()*.5;ctx.fillRect(W/2+Math.cos(a)*rr,H*.36+Math.sin(a)*rr*.8,2,2)}ctx.globalAlpha=1;
+  ctx.textAlign="center";ctx.fillStyle="#8C8982";ctx.font="500 26px 'IBM Plex Mono',monospace";ctx.fillText("VISUAL STUDY",W/2,150);
+  ctx.fillStyle=col;ctx.fillRect(W/2-30,176,60,3);
+  const cjk=/[一-鿿]/.test(e.text);
+  ctx.fillStyle="#ECEAE4";ctx.font=(cjk?"300 64px ":"400 56px ")+(cjk?"'PingFang SC','Microsoft YaHei',sans-serif":"'Space Grotesk',sans-serif");
+  const endY=wrapDraw(ctx,"“"+e.text+"”",{x:W/2,y:H*.52},W-220,cjk?92:74);
+  if(e.why){ctx.fillStyle="#9A968C";ctx.font=(cjk?"italic 34px ":"italic 32px ")+"'EB Garamond','Noto Serif SC',serif";wrapDraw(ctx,e.why,{x:W/2,y:endY+100},W-320,cjk?52:46);ctx.textAlign="center"}
+  ctx.fillStyle="#6B6860";ctx.font="400 24px 'IBM Plex Mono',monospace";
+  ctx.fillText("EXHIBIT #"+e.id+"  ·  "+(lang==="zh"?CATS[e.cat].zh:CATS[e.cat].en.toUpperCase()),W/2,H-180);
+  ctx.fillStyle=col;ctx.fillText("IDEALAND",W/2,H-120);
+  const hint=document.getElementById("studyHint");if(hint)hint.textContent=(lang==="zh"?"已根据这件展品生成 · #":"Generated from #")+e.id;
+}
+function drawConstellation(){
+  const cv=document.getElementById("constCanvas");if(!cv)return;const ctx=cv.getContext("2d"),W=cv.width,H=cv.height,cx=W/2,cy=H/2,R=236;
+  ctx.fillStyle="#0B0B0C";ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle="rgba(236,234,228,.10)";ctx.setLineDash([3,7]);
+  for(let i=0;i<CAT_ORDER.length;i++){const a=i/CAT_ORDER.length*Math.PI*2-Math.PI/2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*(R+168),cy+Math.sin(a)*(R+168));ctx.stroke()}
+  ctx.setLineDash([]);
+  const mine=mineList(),occ=new Set(mine.map(e=>e.cat));
+  CAT_ORDER.forEach((c,i)=>{const a=i/CAT_ORDER.length*Math.PI*2-Math.PI/2,lx=cx+Math.cos(a)*(R+200),ly=cy+Math.sin(a)*(R+200),on=occ.has(c);
+    if(on){ctx.fillStyle=CAT_HEX[c];ctx.beginPath();ctx.arc(cx+Math.cos(a)*R,cy+Math.sin(a)*R,4,0,7);ctx.fill()}
+    ctx.textAlign=Math.cos(a)>0.2?"left":Math.cos(a)<-0.2?"right":"center";ctx.fillStyle=on?CAT_HEX[c]:"#45433E";ctx.font=(on?"500 ":"400 ")+"22px 'IBM Plex Mono',monospace";
+    ctx.fillText(lang==="zh"?CATS[c].zh:CATS[c].en.toUpperCase(),lx,ly+7)});
+  mine.forEach(e=>{const ci=CAT_ORDER.indexOf(e.cat),base=ci/CAT_ORDER.length*Math.PI*2-Math.PI/2,r=rng(hashStr(e.id));
+    const ax=cx+Math.cos(base)*R,ay=cy+Math.sin(base)*R,rr=40+r()*(R-80),a=base+(r()-.5)*.5,x=cx+Math.cos(a)*rr,y=cy+Math.sin(a)*rr;
+    ctx.strokeStyle=CAT_HEX[e.cat]+"44";ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(ax,ay);ctx.stroke();
+    ctx.shadowColor=CAT_HEX[e.cat];ctx.shadowBlur=16;ctx.fillStyle=CAT_HEX[e.cat];ctx.beginPath();ctx.arc(x,y,8,0,7);ctx.fill();ctx.shadowBlur=0});
+  const n=mine.length;
+  ctx.fillStyle=n?"#ECEAE4":"#6B6860";ctx.textAlign="center";ctx.font="300 30px 'Space Grotesk','PingFang SC',sans-serif";
+  ctx.fillText(n?(lang==="zh"?n+" 件你的欲望":n+" of your desires"):(lang==="zh"?"提交后，你的欲望会在这里亮起":"Submit — your desires will light up here"),cx,cy+10);
+}
+function renderLab(){fillStudySelect();drawStudy();drawConstellation()}
+function dlCanvas(id,name){const cv=document.getElementById(id);if(!cv)return;const a=document.createElement("a");a.href=cv.toDataURL("image/png");a.download=name;a.click()}
+(function labBindings(){
+  const g=document.getElementById("studyGen");if(g)g.onclick=drawStudy;
+  const d1=document.getElementById("studyDl");if(d1)d1.onclick=()=>dlCanvas("studyCanvas","idealand-visual-study.png");
+  const d2=document.getElementById("constDraw");if(d2)d2.onclick=drawConstellation;
+  const d3=document.getElementById("constDl");if(d3)d3.onclick=()=>dlCanvas("constCanvas","idealand-constellation.png");
+})();
+
+/* ═══════════ ABOUT ═══════════ */
+const MANIFESTO={zh:["人总是在渴望某些东西。","更多的钱，更大的房子，一段关系，自由，成功，被爱，被看见，离开，回去，成为另一个人。","我想知道——如果把这些欲望放在一起，我们究竟在渴望什么。"],
+ en:["We are always wanting something.","More money. A bigger room. A relationship. Freedom. Success. To be loved. To be seen. To leave. To return. To become someone else.","I wanted to know: gathered together, what is it we are really desiring?"]};
+const THREE={zh:[["欲望档案馆","收集不同的人对生活、物质、关系、自由、未来与自我的想象。"],["你的创作室","每一位访客都能在此留下并拥有自己的展品与创作，而不只是旁观。"],["视觉实验室","把收集到的欲望重新转化为图像、数据与生成艺术。"]],
+ en:[["Desire Archive","Collects how different people imagine life, matter, relation, freedom, future and self."],["Your Own Room","Every visitor keeps and owns their exhibits and creations — never just watches."],["Visual Lab","Turns collected desires back into images, data and generative art."]]};
+const LOOP={zh:["人产生欲望","记录成一件展品","档案馆观察它","被重新组合","生成新的创作"],en:["A desire arises","It is recorded as an exhibit","The archive observes it","It is recombined","A new creation is born"]};
+function renderAbout(){
+  const m=document.getElementById("aboutManifesto");if(m)m.innerHTML=MANIFESTO[lang==="zh"?"zh":"en"].map(p=>`<p>${p}</p>`).join("");
+  const t=document.getElementById("aboutThree");if(t)t.innerHTML=THREE[lang==="zh"?"zh":"en"].map((c,i)=>`<div class="three-cell"><span class="n">0${i+1}</span><h5>${c[0]}</h5><p>${c[1]}</p></div>`).join("");
+  const l=document.getElementById("aboutLoop");if(l)l.innerHTML=LOOP[lang==="zh"?"zh":"en"].map(x=>`<div class="loop-item"><b>${x}</b></div>`).join("");
+  const p=document.getElementById("aboutPrinciple");if(p)p.textContent=lang==="zh"?"匿名原则 · 不收集身份信息 · 你的提交只保存在你的本机浏览器":"ANONYMOUS BY DESIGN · NO IDENTITY DATA · YOUR SUBMISSIONS LIVE ONLY IN YOUR BROWSER";
+}
+
 /* ═══════════ INIT ═══════════ */
-buildChips();renderMuseum();applyI18n();whisper();rotateQuestion();route();
+buildChips();renderMuseum();applyI18n();whisper();rotateQuestion();renderRoom();renderLab();renderAbout();route();
 </script>
 </body>
 </html>
