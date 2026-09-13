@@ -180,7 +180,13 @@ body.at-home .hud-top:hover{opacity:1}
   font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--faint);text-transform:uppercase}
 .rail-rule{flex:1;height:1px;background:var(--line-soft)}
 .track{flex:1;display:flex;align-items:center;gap:44px;overflow-x:auto;overflow-y:hidden;
-  padding:10px var(--gut) 72px;scroll-snap-type:x proximity;cursor:grab}
+  padding:10px var(--gut) 72px;scroll-snap-type:x proximity;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.hall-nav{position:absolute;top:calc(50% + 14px);z-index:6;width:48px;height:48px;display:grid;place-items:center;
+  border:1px solid var(--line);background:rgba(11,11,12,.6);backdrop-filter:blur(6px);
+  color:var(--muted);font-size:16px;line-height:1;cursor:pointer;transition:color .25s,border-color .25s,background .25s}
+.hall-nav:hover{color:var(--ink);border-color:rgba(236,234,228,.42);background:rgba(19,19,21,.85)}
+.hall-nav:active{transform:scale(.94)}
+.hall-prev{left:18px}.hall-next{right:18px}
 .track.dragging{cursor:grabbing}
 .frame{position:relative;flex:0 0 clamp(300px,26vw,388px);scroll-snap-align:center;
   min-height:316px;background:linear-gradient(180deg,var(--panel-2),var(--panel));
@@ -490,6 +496,8 @@ select.dark option{background:#131315}
         <span id="hallCount">18 EXHIBITS</span>
       </div>
       <div class="track" id="track"></div>
+      <button class="hall-nav hall-prev" id="hallPrev" aria-label="Previous hall">◂</button>
+      <button class="hall-nav hall-next" id="hallNext" aria-label="Next hall">▸</button>
       <div class="hall-hint" data-i18n="hall_hint">← → / drag / scroll to wander</div>
       <div class="coming-halls">
         <b>OBJECTS · IDEAL LIFE · STORIES</b><br>
@@ -850,11 +858,14 @@ function observeLit(){
 track.addEventListener("scroll",()=>{if(!litRAF){litRAF=true;requestAnimationFrame(()=>{litRAF=false;observeLit()})}},{passive:true});
 function centerFirst(){const f=track.firstElementChild;if(f)track.scrollTo({left:0})}
 /* wheel → horizontal on hall */
-track.addEventListener("wheel",e=>{if(mode!=="hall")return;if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){
-  track.scrollLeft+=e.deltaY;e.preventDefault()}},{passive:false});
+document.getElementById("view-museum").addEventListener("wheel",e=>{if(mode!=="hall")return;const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;if(!d)return;{
+  track.scrollLeft+=d;e.preventDefault()}},{passive:false});
+const hallStep=()=>Math.max(320,Math.round(track.clientWidth*.82));
+document.getElementById("hallPrev").onclick=()=>track.scrollBy({left:-hallStep(),behavior:"smooth"});
+document.getElementById("hallNext").onclick=()=>track.scrollBy({left:hallStep(),behavior:"smooth"});
 /* drag scroll */
 let drag=null;
-track.addEventListener("pointerdown",e=>{drag={x:e.clientX,sl:track.scrollLeft,moved:false};track.classList.add("dragging")});
+track.addEventListener("pointerdown",e=>{drag={x:e.clientX,sl:track.scrollLeft,moved:false};track.classList.add("dragging");try{track.setPointerCapture(e.pointerId)}catch(_){}});
 addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>4)drag.moved=true;
   track.scrollLeft=drag.sl-dx});
 addEventListener("pointerup",()=>{if(drag){track.classList.remove("dragging");
