@@ -89,6 +89,10 @@ button,a{min-height:24px}
   text-transform:uppercase;color:var(--faint);
   background:linear-gradient(0deg,rgba(11,11,12,.88),rgba(11,11,12,0))}
 .hud-bottom .keys b{color:var(--muted);font-weight:500}
+.about-link{cursor:pointer;transition:color .25s}
+.about-link:hover{color:var(--ink)}
+.home-whisper{cursor:pointer}
+.home-whisper:hover blockquote{color:var(--ink)}
 
 /* ════════════════════════ VIEWS ════════════════════════ */
 .view{position:fixed;inset:0;display:none;opacity:0;transform:translateZ(0);backface-visibility:hidden}
@@ -455,7 +459,7 @@ select.dark option{background:#131315}
     <div class="home-sub" data-i18n="home_sub">of Human Desires</div>
     <button class="btn-outline home-enter" data-route="#/museum"><span data-i18n="enter">Enter</span><span class="arr">→</span></button>
   </div>
-  <div class="home-whisper">
+  <div class="home-whisper" id="homeWhisper">
     <blockquote id="whisperText"></blockquote>
     <cite id="whisperSig"></cite>
   </div>
@@ -650,7 +654,7 @@ select.dark option{background:#131315}
 <!-- ══════ HUD BOTTOM ══════ -->
 <footer class="hud-bottom">
   <div class="keys"><span id="keysLeft"><b>← →</b> WANDER · <b>SPACE</b> NEXT · <b>ESC</b> EFFECTS <span id="fxState">ON</span></span></div>
-  <div data-i18n="bottom_right">ANONYMOUS BY DESIGN · ABOUT</div>
+  <div class="about-link" id="aboutLink" data-route="#/about" data-i18n="bottom_right">ANONYMOUS BY DESIGN · ABOUT</div>
 </footer>
 
 <canvas id="trail"></canvas>
@@ -784,7 +788,7 @@ function route(){
   if(key==="#/about")renderAbout();
 }
 addEventListener("hashchange",route);
-document.querySelectorAll("[data-route]").forEach(el=>el.addEventListener("click",()=>{location.hash=el.getAttribute("data-route")}));
+document.addEventListener("click",ev=>{const el=ev.target.closest&&ev.target.closest("[data-route]");if(el){location.hash=el.getAttribute("data-route")}});
 
 /* ═══════════ MUSEUM ═══════════ */
 let activeCat="all",mode="hall";
@@ -882,9 +886,10 @@ document.getElementById("nextBtn").onclick=()=>{const e=EXHIBITS[Math.floor(Math
 /* ═══════════ HOME whisper + fragments ═══════════ */
 const wT=document.getElementById("whisperText"),wS=document.getElementById("whisperSig");
 let wi=0;
-function whisper(){const e=EXHIBITS[wi%EXHIBITS.length];wT.style.opacity=0;
+let whisperE=null;function whisper(){const e=EXHIBITS[wi%EXHIBITS.length];whisperE=e;wT.style.opacity=0;
   setTimeout(()=>{wT.textContent="“"+e.text+"”";wS.textContent="ANONYMOUS #"+e.id;wT.style.opacity=1},600);wi++}
 setInterval(whisper,8000);
+(function(){const hw=document.getElementById("homeWhisper");if(hw)hw.onclick=()=>{if(whisperE)location.hash="#/exhibit/"+whisperE.id}})();
 (function fragments(){
   const field=document.getElementById("fragment-field");if(!field)return;
   for(let i=0;i<16;i++){const e=EXHIBITS[i%EXHIBITS.length];const s=document.createElement("span");
@@ -1073,6 +1078,7 @@ function renderLab(){fillStudySelect();drawStudy();drawConstellation()}
 function dlCanvas(id,name){const cv=document.getElementById(id);if(!cv)return;const a=document.createElement("a");a.href=cv.toDataURL("image/png");a.download=name;a.click()}
 (function labBindings(){
   const g=document.getElementById("studyGen");if(g)g.onclick=drawStudy;
+  const sp=document.getElementById("studyPick");if(sp)sp.onchange=drawStudy;
   const d1=document.getElementById("studyDl");if(d1)d1.onclick=()=>dlCanvas("studyCanvas","idealand-visual-study.png");
   const d2=document.getElementById("constDraw");if(d2)d2.onclick=drawConstellation;
   const d3=document.getElementById("constDl");if(d3)d3.onclick=()=>dlCanvas("constCanvas","idealand-constellation.png");
